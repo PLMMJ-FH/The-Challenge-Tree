@@ -49,7 +49,7 @@ addLayer("p", {
                 goal = goal.pow(challengeCompletions('p', 11).add(1))
                 return formatWhole(goal)
             },
-            canComplete: function() {
+            canComplete() {
                 let goal = new Decimal(10)
                 goal = goal.pow(challengeCompletions('p', 11).add(1))
                 return player.points.gte(goal)
