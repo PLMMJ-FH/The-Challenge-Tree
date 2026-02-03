@@ -44,11 +44,7 @@ addLayer("p", {
             challengeDescription: "Point gain is square rooted.",
 			completionLimit: 3,
             unlocked() { return player.p.unlocked },
-            canComplete: function() {
-                let goal = new Decimal(10)
-                goal = goal.pow(challengeCompletions('p', 11).add(1))
-                return player.points.gte(goal)
-            },
+            canComplete: function() { return player.points.gte(10) },
             rewardDescription: "Multiply point gain by a number based on completions, and unlock another Prestige upgrade.",
         },
     },
