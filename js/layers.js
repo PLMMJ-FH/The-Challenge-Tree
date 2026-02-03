@@ -50,11 +50,6 @@ addLayer("p", {
                 return player.points.gte(goal)
             },
             rewardDescription: "Multiply point gain by a number based on completions, and unlock another Prestige upgrade.",
-            rewardEffect() {
-                let effect = new Decimal(1)
-                effect = effect.add(challengeCompletions('p', 11))
-                return effect
-            },
         },
     },
 })
