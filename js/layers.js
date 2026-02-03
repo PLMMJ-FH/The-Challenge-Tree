@@ -41,12 +41,12 @@ addLayer("p", {
     challenges: {
         11: {
             name: "Preparation",
-            challengeDescription: "Point gain is square rooted.",
-			completionLimit: 3,
+            challengeDescription: "Point gain is halved.",
+			completionLimit: 1,
             unlocked() { return player.p.unlocked },
-            goalDescription: "100 points",
-            canComplete: function() {return player.points.gte(100)},
-            rewardDescription: "Multiply point gain by a number based on completions, and unlock another Prestige upgrade.",
+            goalDescription: "10 points",
+            canComplete: function() {return player.points.gte(10)},
+            rewardDescription: "Double point gain and unlock a Prestige upgrade.",
         },
     },
 })
