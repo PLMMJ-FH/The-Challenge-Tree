@@ -46,12 +46,12 @@ addLayer("p", {
             unlocked() { return player.p.unlocked },
             goalDescription() {
                 let goal = new Decimal(10)
-                goal = goal.pow(challengeCompletions('p', 11).add(1))
+                goal = goal.pow(challengeCompletions(this.layer, this.id).add(1))
                 return formatWhole(goal)
             },
-            canComplete() {
+            canComplete: function() {
                 let goal = new Decimal(10)
-                goal = goal.pow(challengeCompletions('p', 11).add(1))
+                goal = goal.pow(challengeCompletions(this.layer, this.id).add(1))
                 return player.points.gte(goal)
             },
             rewardDescription: "Multiply point gain by a number based on completions, and unlock another Prestige upgrade.",
