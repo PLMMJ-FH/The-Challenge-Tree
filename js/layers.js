@@ -6,7 +6,7 @@ addLayer("p", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#31AEB0",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "prestige points", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
@@ -24,5 +24,40 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades: {
+        11: {
+            title: "Prestige Boost",
+            description: "Prestige points multiply point generation.",
+            cost: new Decimal(1),
+            unlocked() { return hasChallenge('p', 11) },
+            effect() {
+                let eff = player[this.layer].points.add(1).pow(0.5)
+                return eff
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+    },
+    challenges: {
+        11: {
+            name: "Preparation",
+            challengeDescription: "Point gain is square rooted.",
+			completionLimit() { 
+				let lim = 3
+				return lim
+            },
+            unlocked() { return player.p.unlocked },
+            canComplete: function() {
+                let goal = new Decimal(10)
+                goal = goal.pow(challengeCompletions('p', 11).add(1))
+                return player.points.gte(goal)
+            },
+            rewardDescription: "Multiply point gain by a number based on completions, and unlock another Prestige upgrade.",
+            rewardEffect() {
+                let effect = new Decimal(1)
+                effect = effect.add(challengeCompletions('p', 11))
+                return effect
+            }
+        },
+    },
 })
