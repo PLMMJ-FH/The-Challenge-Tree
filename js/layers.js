@@ -42,10 +42,7 @@ addLayer("p", {
         11: {
             name: "Preparation",
             challengeDescription: "Point gain is square rooted.",
-			completionLimit() { 
-				let lim = 3
-				return lim
-            },
+			completionLimit: 3,
             unlocked() { return player.p.unlocked },
             canComplete: function() {
                 let goal = new Decimal(10)
@@ -57,7 +54,7 @@ addLayer("p", {
                 let effect = new Decimal(1)
                 effect = effect.add(challengeCompletions('p', 11))
                 return effect
-            }
+            },
         },
     },
 })

@@ -18,7 +18,7 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1: The Prestigious Progress Update</h3><br>
+	<h3>v0.1: Prestigious Progress</h3><br>
 		- Added the Prestige (P) layer.<br>
 		- Added content to the Prestige layer.`
 
@@ -46,6 +46,7 @@ function getPointGen() {
 
 	// Most things
 	if (hasUpgrade('p', 11)) gain = gain.times(upgradeEffect('p', 11))
+	if (hasChallenge('p', 11)) gain = gain.times(challengeEffect('p', 11))
 
 	// Challenges
 	if (inChallenge('p', 11)) gain = gain.pow(0.5)
