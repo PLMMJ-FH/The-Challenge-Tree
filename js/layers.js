@@ -48,18 +48,5 @@ addLayer("p", {
             canComplete: function() {return player.points.gte(10)},
             rewardDescription: "Double point gain and unlock a Prestige upgrade.",
         },
-        12: {
-            name: "Proper Preparation",
-            challengeDescription: "Point gain is square rooted.",
-			completionLimit: 3,
-            unlocked() { return player.p.unlocked },
-            goalDescription: "TBA",
-            canComplete: function() {
-                if (challengeCompletions('p', 12).gte(2)) return player.points.gte(10000)
-                if (challengeCompletions('p', 12).gte(1)) return player.points.gte(1000)
-                if (!hasChallenge('p', 12)) return player.points.gte(100)
-            },
-            rewardDescription: "Double point gain and unlock a Prestige upgrade for each level.",
-        },
     },
 })
