@@ -47,11 +47,9 @@ function getPointGen() {
 	// Most things
 	if (hasUpgrade('p', 11)) gain = gain.times(upgradeEffect('p', 11))
 	if (hasChallenge('p', 11)) gain = gain.times(2)
-	if (hasChallenge('p', 12)) gain = gain.pow(challengeCompletions('p', 12).times(0.1).add(1))
 
 	// Challenges
 	if (inChallenge('p', 11)) gain = gain.times(0.5)
-	if (inChallenge('p', 12)) gain = gain.pow(new Decimal(0.75).pow(challengeCompletions('p', 12).add(2)))
 	return gain
 }
 
