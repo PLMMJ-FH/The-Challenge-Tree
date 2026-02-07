@@ -43,7 +43,6 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	let chal_p12_effect = new Decimal(0.75)
 
 	// Most things
 	if (hasUpgrade('p', 11)) gain = gain.times(upgradeEffect('p', 11))
@@ -52,7 +51,7 @@ function getPointGen() {
 
 	// Challenges
 	if (inChallenge('p', 11)) gain = gain.times(0.5)
-	if (inChallenge('p', 12)) gain = gain.pow(chal_p12_effect.pow(challengeCompletions('p', 12).add(2)))
+	if (inChallenge('p', 12)) gain = gain.pow(new Decimal(0.75).pow(challengeCompletions('p', 12).add(2)))
 	return gain
 }
 
