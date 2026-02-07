@@ -46,7 +46,16 @@ addLayer("p", {
             unlocked() { return player.p.unlocked },
             goalDescription: "10 points",
             canComplete: function() {return player.points.gte(10)},
-            rewardDescription: "Double point gain and unlock a Prestige upgrade.",
+            rewardDescription: "Double point gain and unlock some upgrades.",
+        },
+        12: {
+            name: "Proper preparation",
+            challengeDescription: "Point gain is rooted to 0.75^(completions+2).",
+			completionLimit: 3,
+            unlocked() { return player.p.unlocked },
+            goalDescription: "100 points",
+            canComplete: function() {return player.points.gte(10)},
+            rewardDescription: "Power point gain ^1.(completions) and unlock a Prestige upgrade with each completion.",
         },
     },
 })
