@@ -52,7 +52,7 @@ function getPointGen() {
 
 	// Challenges
 	if (inChallenge('p', 11)) gain = gain.times(0.5)
-	if (inChallenge('p', 11)) gain = gain.pow(chal_p12_effect.pow(challengeCompletions('p', 12).add(2)))
+	if (inChallenge('p', 12)) gain = gain.pow(chal_p12_effect.pow(challengeCompletions('p', 12).add(2)))
 	return gain
 }
 

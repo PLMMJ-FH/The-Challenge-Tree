@@ -54,7 +54,7 @@ addLayer("p", {
 			completionLimit: 3,
             unlocked() { return player.p.unlocked },
             goalDescription: "100 points",
-            canComplete: function() {return player.points.gte(10)},
+            canComplete: function() {return player.points.gte(100)},
             rewardDescription: "Power point gain ^1.(completions) and unlock a Prestige upgrade with each completion.",
         },
     },
